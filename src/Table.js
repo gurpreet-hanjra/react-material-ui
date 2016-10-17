@@ -1,9 +1,11 @@
 import React from 'react';
 import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn}
   from 'material-ui/Table';
+import AppBar from 'material-ui/AppBar';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import axios from 'axios';
+
 
 export default class TableComponent extends React.Component {
 
@@ -20,7 +22,6 @@ export default class TableComponent extends React.Component {
       enableSelectAll: false,
       deselectOnClickaway: true,
       showCheckboxes: true,
-      height: '300px',
       open: false,
       data: '',
       employees: []
@@ -70,20 +71,25 @@ export default class TableComponent extends React.Component {
   render() {
 
     const actions = [
+      /*}
       <FlatButton
         label="Cancel"
         primary={true}
         onTouchTap={this.handleClose}
       />,
+      */
       <FlatButton
-        label="Submit"
+        label="OK"
         primary={true}
-        disabled={true}
         onTouchTap={this.handleClose}
       />
     ]
     return (
       <div>
+      <AppBar
+        title="Employees DB"
+        iconClassNameRight="muidocs-icon-navigation-expand-more"
+      />
       <Dialog
         title={this.state.data.name}
         modal={true}
